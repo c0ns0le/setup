@@ -52,6 +52,7 @@ except ImportError:
     __has_blpapi = False
 
 try:
+    import bbg
     from bbg import (get_data_bbg, get_multidata_bbg, get_sensitivity_bbg,
 		     get_histdata_bbg)
 except ImportError:
@@ -76,9 +77,9 @@ if __has_pandas:
 if __has_matplotlib:
     __imports += ", Matplotlib %s" % mpl.__version__
 if __has_blpapi:
-    __imports += ", blpapi"
+    __imports += ", blpapi %s" % bb.__version__
 if __has_bbg:
-    __imports += ", bbg"
+    __imports += ", bbg %s" % bbg.__version__
 
 print ""
 if __imports:
