@@ -1,0 +1,45 @@
+523594.9342645	Microsoft.PowerShell.Core\FileSystem::C:\
+5553.1603406	Microsoft.PowerShell.Core\FileSystem::C:\dev
+1346.3682300	Microsoft.PowerShell.Core\FileSystem::C:\dev\python
+2796.1895861	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\analysis
+48.8253694	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\bbg
+3429.8854673	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian
+48.5337761	Microsoft.PowerShell.Core\FileSystem::C:\tools
+24.8474211	Microsoft.PowerShell.Core\FileSystem::C:\tools\python
+10.4815995	Microsoft.PowerShell.Core\FileSystem::C:\tools\python3
+6.1553521	Microsoft.PowerShell.Core\FileSystem::C:\tools\ruby
+6.7073844	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\AppData\Local\GitHub
+24.5584047	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\google drive
+53.6170667	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\dropbox
+148.6335011	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\Documents\WindowsPowerShell\Modules\posh-git
+336654.4298811	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\analysis\cef
+14.5198305	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\temp
+6149.0607882	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\test
+77.5354348	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\test\t1
+66.2037866	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\test\t2
+104.7449910	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.ssh
+268.4773559	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.virtualenvs
+251535.0641565	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\pandas
+1806.2493116	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\sip
+367.6380276	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\pandas\pandas\tools
+0.0030002	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\pandas\pandas\io\tests
+2.6041489	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\Documents\WindowsPowerShell\Modules\posh-hg
+11.3376484	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\pandas\pandas\io
+443.1643476	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\pandas\pandas
+1557.7640989	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\pandas\pandas\tests
+63186.8767513	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.vim
+2479.8587263	Microsoft.PowerShell.Core\FileSystem::C:\dev\setup
+1032.0824677	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\statsmodels
+22.7898940	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.vim\bundle
+50.3518937	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.vim\bundle\FuzzyFinder
+137.7049863	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.vim\bundle\FuzzyFinder\doc
+48.7816945	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.vim\bundle\fuzzyfinder
+4.6165862	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.vim\bundle\fuzzyfinder\doc
+2794.7815474	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.fonts
+1205.1369192	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\desktop
+10368.1430262	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\powerline
+7.3144183	Microsoft.PowerShell.Core\FileSystem::C:\tools\python\lib
+115.8696276	Microsoft.PowerShell.Core\FileSystem::C:\tools\python\lib\distutils
+6.1093494	Microsoft.PowerShell.Core\FileSystem::C:\program files
+2647.4734274	Microsoft.PowerShell.Core\FileSystem::C:\program files\Far Manager
+27.2045560	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.fonts\powerline-fonts
