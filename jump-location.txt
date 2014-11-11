@@ -28,7 +28,7 @@
 443.1643476	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\pandas\pandas
 1557.7640989	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\pandas\pandas\tests
 73425.9530536	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.vim
-15174.4962542	Microsoft.PowerShell.Core\FileSystem::C:\dev\setup
+16412.2091013	Microsoft.PowerShell.Core\FileSystem::C:\dev\setup
 63467.6134058	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\statsmodels
 22.7898940	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.vim\bundle
 50.3518937	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.vim\bundle\FuzzyFinder
