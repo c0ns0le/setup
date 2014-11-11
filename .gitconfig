@@ -11,6 +11,7 @@
 [diff]
 	guitool = kdiff3
 [credential]
+
 [difftool "kdiff3"]
 	path = C:/Program Files/KDiff3/kdiff3.exe
 [mergetool "kdiff3"]

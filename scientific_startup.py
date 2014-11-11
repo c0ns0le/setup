@@ -61,6 +61,8 @@ except ImportError:
 try:
     import matplotlib as mpl
     import matplotlib.pyplot as plt  #analysis:ignore
+	if __has_pandas:
+		pd.options.display.mpl_style = 'ggplot'
 except ImportError:
     __has_matplotlib = False
 
@@ -138,12 +140,12 @@ computing and visualization. It tries to import the following modules:
     if __has_numpy:
         infos += "\n"
 
-    infos += """
-Within Spyder, this interpreter also provides:
-    * special commands (e.g. %ls, %pwd, %clear)
-    * system commands, i.e. all commands starting with '!' are subprocessed
-      (e.g. !dir on Windows or !ls on Linux, and so on)
-"""
+#    infos += """
+#Within Spyder, this interpreter also provides:
+#    * special commands (e.g. %ls, %pwd, %clear)
+#    * system commands, i.e. all commands starting with '!' are subprocessed
+#      (e.g. !dir on Windows or !ls on Linux, and so on)
+#"""
     __builtin__.scientific = _Printer("scientific", infos)
 
 
