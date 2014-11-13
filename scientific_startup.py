@@ -60,9 +60,9 @@ except ImportError:
 
 try:
     import matplotlib as mpl
-    import matplotlib.pyplot as plt  #analysis:ignore
-	if __has_pandas:
-		pd.options.display.mpl_style = 'ggplot'
+    import matplotlib.pyplot as plt #analysis:ignore
+    if __has_pandas:
+        pd.options.display.mpl_style = 'ggplot'
 except ImportError:
     __has_matplotlib = False
 

@@ -1,9 +1,9 @@
-719689.1697025	Microsoft.PowerShell.Core\FileSystem::C:\
+781000.2802670	Microsoft.PowerShell.Core\FileSystem::C:\
 5553.1603406	Microsoft.PowerShell.Core\FileSystem::C:\dev
-68581.1222257	Microsoft.PowerShell.Core\FileSystem::C:\dev\python
+72524.0897501	Microsoft.PowerShell.Core\FileSystem::C:\dev\python
 288275.1340968	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\analysis
 1978.9877687	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\bbg
-8516.4354025	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian
+16508.7301917	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian
 48.5337761	Microsoft.PowerShell.Core\FileSystem::C:\tools
 24.8474211	Microsoft.PowerShell.Core\FileSystem::C:\tools\python
 10.4815995	Microsoft.PowerShell.Core\FileSystem::C:\tools\python3
@@ -28,7 +28,7 @@
 443.1643476	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\pandas\pandas
 1557.7640989	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\pandas\pandas\tests
 73425.9530536	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.vim
-16412.2091013	Microsoft.PowerShell.Core\FileSystem::C:\dev\setup
+19863.1682839	Microsoft.PowerShell.Core\FileSystem::C:\dev\setup
 63467.6134058	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\statsmodels
 22.7898940	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.vim\bundle
 50.3518937	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.vim\bundle\FuzzyFinder
@@ -37,7 +37,7 @@
 4.6165862	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.vim\bundle\fuzzyfinder\doc
 2794.7815474	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.fonts
 1260.0113099	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\desktop
-13867.9722041	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\powerline
+18228.9596387	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\powerline
 7.3144183	Microsoft.PowerShell.Core\FileSystem::C:\tools\python\lib
 115.8696276	Microsoft.PowerShell.Core\FileSystem::C:\tools\python\lib\distutils
 6.1093494	Microsoft.PowerShell.Core\FileSystem::C:\program files
@@ -66,5 +66,10 @@
 6746.7218929	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.virtualenvs\devpi\Scripts
 17371.8286122	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\blpapi
 21.4822287	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.devpi\server\.xproc\devpi-server
-3.0231729	Microsoft.PowerShell.Core\FileSystem::C:\usr
-4513.3121467	Microsoft.PowerShell.Core\FileSystem::C:\usr\local
+26994.7830192	Microsoft.PowerShell.Core\FileSystem::C:\usr
+5675.7886366	Microsoft.PowerShell.Core\FileSystem::C:\usr\local
+15617.4132683	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\pyuv
+5511.9152650	Microsoft.PowerShell.Core\FileSystem::C:\usr\local\libuv
+56.6722416	Microsoft.PowerShell.Core\FileSystem::C:\tmp
+2149.4569422	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.emacs.d
+10726.5463357	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.emacs.d\repos

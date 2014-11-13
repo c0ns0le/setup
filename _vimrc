@@ -87,6 +87,13 @@ set tabstop=4
 set textwidth=80
 set history=50		" keep 50 lines of command line history
 
+" Wildmenus
+set wildchar=<Tab>
+set wildmenu
+set wildmode=full
+set wildcharm=<C-Z>
+nnoremap <F10> :b <C-Z>
+
 syntax enable
 
 if has ('gui_running')
@@ -100,9 +107,9 @@ endif
 if !empty($CONEMUBUILD) && !has('gui_running')
     " ConEmu setup
     silent echom "Running in conemu"
-    "xterm settings
+    " xterm settings
     set term=xterm
-    set termencoding=utf8
+    "set termencoding=utf8
     set t_Co=256
     "set notimeout		" don't timeout on mappings
     "set ttimeout		" do timeout on terminal key codes
@@ -289,7 +296,7 @@ set diffexpr=MyDiff()
 " Toggle logging to file
 function! ToggleVerbose()
     if !&verbose
-        set verbosefile=~/.log/vim/verbose.log
+        set verbosefile=c:/tmp/log/vim/verbose.log
         set verbose=15
     else
         set verbose=0
@@ -297,7 +304,7 @@ function! ToggleVerbose()
     endif
 endfunction
 nmap <leader>v :call ToggleVerbose()<CR>
-nmap <leader>l :vsp ~/.log/vim/verbose.log<CR>:e!<CR>
+nmap <leader>l :vsp c:/tmp/log/vim/verbose.log<CR>:e!<CR>
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.

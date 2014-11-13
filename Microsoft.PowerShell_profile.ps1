@@ -52,7 +52,7 @@ function global:prompt {
         Write-Host $symbol -foregroundcolor DarkGreen -nonewline}
     else {
         $symbol = $symbol + [char]946
-        Write-Host $symbol -foregroundcolor White -nonewline}
+        Write-Host $symbol -foregroundcolor cyan -nonewline}
     return " "
 }
 
