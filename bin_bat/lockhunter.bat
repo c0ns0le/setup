@@ -1,2 +1,2 @@
 @echo off
-start "" "C:\Program Files\LockHunter\LockHunter.exe"
+start "" "d:\usr\local\LockHunter\LockHunter.exe"
