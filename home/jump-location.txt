@@ -1,4 +1,4 @@
-987060.1268859	Microsoft.PowerShell.Core\FileSystem::C:\
+1044837.5202233	Microsoft.PowerShell.Core\FileSystem::C:\
 5563.4149271	Microsoft.PowerShell.Core\FileSystem::C:\dev
 360691.9424553	Microsoft.PowerShell.Core\FileSystem::C:\dev\python
 901629.9774267	Microsoft.PowerShell.Core\FileSystem::C:\dev\python\analysis
@@ -93,5 +93,6 @@
 12.9687417	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.virtualenvs\pdf
 84.0548077	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.virtualenvs\pdf\Scripts
 96.2675065	Microsoft.PowerShell.Core\FileSystem::C:\Users\Brian\.virtualenvs\
-9.8575638	Microsoft.PowerShell.Core\FileSystem::D:\home
-1661.6410391	Microsoft.PowerShell.Core\FileSystem::D:\home\brian\setup
+16.5363757	Microsoft.PowerShell.Core\FileSystem::D:\home
+57174.7771764	Microsoft.PowerShell.Core\FileSystem::D:\home\brian\setup
+6.9418442	Microsoft.PowerShell.Core\FileSystem::D:\home\brian

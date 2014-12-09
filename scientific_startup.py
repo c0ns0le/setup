@@ -62,7 +62,7 @@ try:
     import matplotlib as mpl
     import matplotlib.pyplot as plt #analysis:ignore
     if __has_pandas:
-        pd.options.display.mpl_style = 'ggplot'
+        pd.options.display.mpl_style = 'default'
 except ImportError:
     __has_matplotlib = False
 
