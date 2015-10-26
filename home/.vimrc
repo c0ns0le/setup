@@ -12,12 +12,13 @@ let s:has_gui = has("gui_running")
 " Set filetype off for vundle, it will be turned back on later
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim
+set rtp+=~/.vim/bundle/vundle.vim
 "call vundle#rc
 let path='~/.vim/bundle'
 call vundle#begin(path)
 
-Plugin 'gmarik/vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 
 " My Plugins here:
 " original repos on github
@@ -27,10 +28,14 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'jmcantrell/vim-virtualenv'
+"Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'PProvost/vim-ps1'
 Plugin 'kchmck/vim-coffee-script'
 "Plugin 'ivanov/vim-ipython'
+Plugin 'fatih/vim-go'
+Plugin 'sukima/xmledit'
+Plugin 'vim-scripts/slimv.vim'
+Plugin 'chrisbra/csv.vim'
 
 "Color schemes
 "Plugin 'altercation/vim-colors-solarized'
@@ -90,7 +95,7 @@ set softtabstop=4
 set splitbelow
 set splitright
 set tabstop=4
-set textwidth=80
+set textwidth=120
 set ttyfast
 
 " Wildmenus
@@ -114,9 +119,9 @@ if s:has_gui || s:has_unix || s:has_windows
     " Use default python due to str byte conversion
     "let g:powerline_pycmd='python'
     "set rtp+=C:/tools/python/Lib/site-packages/powerline/bindings/vim
-    python3 from powerline.vim import setup as powerline_setup
-    python3 powerline_setup()
-    python3 del powerline_setup
+    python from powerline.vim import setup as powerline_setup
+    python powerline_setup()
+    python del powerline_setup
 endif
 
 if !empty($CONEMUBUILD) && !s:has_gui
@@ -130,6 +135,12 @@ if !empty($CONEMUBUILD) && !s:has_gui
     set t_RV=xterm-256color
     let &t_AB="\e[48;5;%dm"
     let &t_AF="\e[38;5;%dm"
+
+    " mouse wheel in conemu
+    inoremap <Esc>[62~ <C-X><C-E>
+    inoremap <Esc>[63~ <C-X><C-Y>
+    nnoremap <Esc>[62~ <C-E>
+    nnoremap <Esc>[63~ <C-Y>
 
     "set notimeout		" don't timeout on mappings
     "set ttimeout		" do timeout on terminal key codes
@@ -229,20 +240,20 @@ map! jk <Esc>
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
+map Q gq|                          "Don't use Ex mode, use Q for formatting
 
 " Toggles
 map <F2> :NERDTreeToggle<CR>
 nnoremap <silent><leader>n :set relativenumber!<CR>
 nmap <leader>1 :set list!<CR>
+nmap <leader>w :set wrap!<CR>
 
-" Help for word under cursor
-map <F3> "zyiw:exe "h ".@z.""<CR> 
+map <F3> "zyiw:exe "h ".@z.""<CR>| "Help for word under cursor
+
 
 " vimrc commands
-map <F9> :vsp $HOME/_vimrc<CR>
 map <F6> :so $HOME/_vimrc<CR>
+map <F9> :vsp $HOME/_vimrc<CR>
 
 "Ctrl-[hjkl] to move within splits
 map <C-j> <C-W>j
@@ -260,21 +271,15 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 
 map <Space> <PageDown>
 map <S-Space> <PageUp>
-"map <Space> <PageDown>
-"map <S-Space> <PageUp>
 
 " Center screen on searches...
 nmap n nzz
 nmap N Nzz
 
-" Play macro recorded to q
-nnoremap <leader>q @q
+nnoremap <leader>q @q|             "Play macro recorded to q
+map <leader>f :noh<CR>|            "Remove search highlight
+map <leader>m :messages<CR>|       "Show messages
 
-" Remove search highlight
-map <leader>f :noh<CR>
-
-" Show messages
-map <leader>m :messages<CR>
 
 ":vnoremap <f5> :!python<CR>
 "nmap <buffer> <F5> :w<esc>mwG:r!py %<CR>'.
@@ -307,7 +312,7 @@ set diffexpr=MyDiff()
 " Toggle logging to file
 function! ToggleVerbose()
     if !&verbose
-        set verbosefile=c:/tmp/log/vim/verbose.log
+        set verbosefile=c:/temp/log/vim/verbose.log
         set verbose=15
     else
         set verbose=0
@@ -315,7 +320,7 @@ function! ToggleVerbose()
     endif
 endfunction
 nmap <leader>v :call ToggleVerbose()<CR>
-nmap <leader>l :vsp c:/tmp/log/vim/verbose.log<CR>:e!<CR>
+nmap <leader>l :vsp c:/temp/log/vim/verbose.log<CR>:e!<CR>
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -324,6 +329,22 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+
+function! Dos2unix()
+    update
+    e ++ff=dos
+    setlocal ff=unix
+    w
+endfunction
+command! -nargs=0 D2u :call Dos2unix()
+
+function! Unix2dos()
+    update
+    e ++ff=dos
+    w
+endfunction
+command! -nargs=0 U2d :call Unix2dos()
+
 
 " Add the virtualenv's site-packages to vim path
 "py << EOF
@@ -336,4 +357,22 @@ endif
     "activate_this = os.path.join(project_base_dir, 'scripts/activate_this.py')
     "execfile(activate_this, dict(__file__=activate_this))
 "EOF
+"
+" Highlight a column in csv text.
+" :Csv 1    " highlight first column
+" :Csv 12   " highlight twelfth column
+" :Csv 0    " switch off highlight
+"function! CSVH(colnr)
+  "if a:colnr > 1
+    "let n = a:colnr - 1
+    "execute 'match Keyword /^\([^,]*,\)\{'.n.'}\zs[^,]*/'
+    "execute 'normal! 0'.n.'f,'
+  "elseif a:colnr == 1
+    "match Keyword /^[^,]*/
+    "normal! 0
+  "else
+    "match
+  "endif
+"endfunction
+"command! -nargs=1 Csv :call CSVH(<args>)
 

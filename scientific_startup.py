@@ -10,7 +10,7 @@ Scientific Python startup script
 Requires NumPy, SciPy, Matplotlib, blpapi, bbg
 """
 
-from __future__ import division
+from __future__ import division, print_function
 
 __has_numpy = True
 __has_scipy = True
@@ -83,9 +83,9 @@ if __has_blpapi:
 if __has_bbg:
     __imports += ", bbg %s" % bbg.__version__
 
-print ""
+print("")
 if __imports:
-    print __imports
+    print(__imports)
 
 import os
 if os.environ.get('QT_API') != 'pyside':
@@ -94,10 +94,10 @@ if os.environ.get('QT_API') != 'pyside':
         import guiqwt.pyplot as plt_
         import guidata
         plt_.ion()
-        print "+ guidata %s, guiqwt %s" % (guidata.__version__,
-                                           guiqwt.__version__)
+        print("+ guidata %s, guiqwt %s" % (guidata.__version__,
+                                           guiqwt.__version__))
     except ImportError:
-        print
+        print()
 
 #==============================================================================
 # Add help about the "scientific" command
@@ -150,7 +150,7 @@ computing and visualization. It tries to import the following modules:
 
 
 setscientific()
-print 'Type "scientific" for more details.'
+print('Type "scientific" for more details.')
 
 #==============================================================================
 # Delete temp vars

@@ -5,11 +5,10 @@ $env:ProfileRoot = $PSScriptRoot
 
 New-PSDrive -Name HOME -PSProvider FileSystem -Root $env:USERPROFILE >$null
 
-Import-Module "PowerTab" -ArgumentList .\PowerTabConfig.xml
-Import-Module Pscx
+$GitPath = "d:\opt\git"
 
-$GitPath = "d:\opt\msysgit"
 $env:path += ";$GitPath\cmd;$GitPath\bin;$GitPath\mingw\bin"
+$env:path += ";c:\local\bde-tools\bin"
 
 $env:GOPATH = "d:\home\brian\go"
 $env:GOBIN = "$env:GOPATH\bin"
@@ -17,36 +16,28 @@ $env:GOBIN = "$env:GOPATH\bin"
 $env:path += ";$env:GOBIN"
 $env:path += ";$env:ChocolateyInstall\bin"
 
-#Invoke-BatchFile "${env:VS100COMNTOOLS}..\..\VC\vcvarsall.bat"
-#Invoke-BatchFile "${env:VS90COMNTOOLS}..\..\VC\vcvarsall.bat" amd64
-
-# Load PSReadLine
+# Load Modules
+Import-Module Pscx
 . .\Modules\PSReadline\PSReadLineProfile.ps1
+#Import-Module Jump.Location
 
-# Load Jump-Location profile
-#Import-Module $PSScriptRoot\Modules\Jump.Location\Jump.Location.psd1
-Import-Module Jump.Location
-
-# posh-git/hg profiles
-Import-Module posh-hg
 Import-Module posh-git
-Enable-GitColors
 $global:GitPromptSettings.EnableFileStatus = $false
 
 $Env:WORKON_HOME= "$Env:USERPROFILE\.virtualenvs"
 $Env:PROJECT_HOME= "c:\dev\python"
-if (-Not $VIRTUALENVWRAPPER_PYTHON) {$global:VIRTUALENVWRAPPER_PYTHON= "c:\tools\python\python.exe"}
+if (-Not $VIRTUALENVWRAPPER_PYTHON) {$global:VIRTUALENVWRAPPER_PYTHON= "c:\tools\python27\python.exe"}
 Import-Module virtualenvwrapper
 New-PSDrive -Name WORKON_HOME -PSProvider FileSystem -Root $Env:WORKON_HOME >$null
 
 # Start the devpi server
-if (-Not (tasklist /fi "imagename eq devpi-server.exe" 2>$null | select-string "devpi-server.exe" -Quiet)) {
-    rm $HOME/.devpi\server\.xproc\devpi-server\xprocess.pid 2>$null
-    devpi-server --start
-    devpi login brian --password=}
-else {Write-Host "devpi-server already running..."}
+#if (-Not (tasklist /fi "imagename eq devpi-server.exe" 2>$null | select-string "devpi-server.exe" -Quiet)) {
+    #rm $HOME/.devpi\server\.xproc\devpi-server\xprocess.pid 2>$null
+    #c:\users\brian\.virtualenvs\devpi\scripts\devpi-server.exe --start}
+#else {Write-Host "devpi-server already running..."}
+devpi login brian --password=
 
-# Set up prompt, adding the git prompt parts inside git repos
+#Set up prompt, adding the git prompt parts inside git repos
 function global:prompt {
     $realLASTEXITCODE = $LASTEXITCODE
 
@@ -75,6 +66,65 @@ function Print-Path {
 	($env:path).split(";") | %{write-host $_}
 }
 
+# PostgreSQL
+$Env:PostgresPath = "c:\postgresql\9.4"
+$Env:PostgresData = "c:\data\postgresql"
+function Postgres-Start {
+    cmd /c "$Env:PostgresPath\bin\pg_ctl.exe" start -D $Env:PostgresData -w
+}
+function Postgres-Stop {
+    cmd /c "$Env:PostgresPath\bin\pg_ctl.exe" stop -D $Env:PostgresData -w
+}
+function Postgres-Command ([switch]$start, [switch]$stop) {
+    If ($stop) {Postgres-Stop}
+    elseif ($start) {Postgres-Start}
+}
+
+# MongoDB
+$Env:MongoPath = "c:\mongodb"
+$Env:MongoData = "c:\data\mongodb\db"
+$Env:MongoLog = "c:\data\mongodb\log"
+function Mongodb-Start {
+    net start MongoDB    
+}
+function Mongodb-Stop {
+    net stop MongoDB
+}
+function Mongdb-Command ([switch]$start, [switch]$stop) {
+    If ($stop) {Mongodb-Stop}
+    elseif ($start) {Mongodb-Start}
+}
+
+# Compiler Functions
+function Get-Platform ($version = 'amd64') {
+    $amd64 = 'x64'
+    $x86 = 'x86'
+    If ($version -eq $amd64) {$rtn = $amd64}
+    ElseIf ($version -eq 'amd64') {$rtn = $amd64}
+    ElseIf ($version -eq '64') {$rtn = $amd64}
+    ElseIf ($version -eq 'x86') {$rtn = $x86}
+    ElseIf ($version -eq 'win32') {$rtn = $x86}
+    ElseIf ($version -eq '32') {$rtn = $x86}
+    Else {$rtn = $amd64}
+    return $rtn
+}
+#function Set-VsPy ($version = 'x64', $config = 'release') {
+    #$version = Get-Platform $version
+    #Invoke-BatchFile C:\Users\Brian\AppData\Local\Programs\Common\Microsoft\"Visual C++ for Python"\9.0\vcvarsall.bat  $version $config
+#}
+function Set-Vs2008 ($version = 'x64', $config = 'release') {
+    $version = Get-Platform $version
+    Invoke-BatchFile "${env:VS90COMNTOOLS}..\..\VC\vcvarsall.bat" $version $config
+}
+function Set-Vs2010 ($version = 'x64', $config = 'release') {
+    $version = Get-Platform $version
+    & "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /$version /$config
+}
+function Set-Vs2013 ($version = 'x64', $config = 'release') {
+    $version = Get-Platform $version
+    Invoke-BatchFile "${env:VS120COMNTOOLS}..\..\VC\vcvarsall.bat" $version $config
+}
+
 # Add custom aliases
 New-Alias sn New-Symlink
 #New-Alias which where.exe
@@ -82,8 +132,19 @@ New-Alias git hub
 New-Alias pinst Install-Module
 New-Alias pup Update-Module
 New-Alias ppath Print-Path
+
+New-Alias psql psql.bat
+New-Alias pg Postgres-Command
+New-Alias mdb Mongodb-Command
+
+#New-Alias vspy Set-VsPy
+New-Alias vs2008 Set-Vs2008
+New-Alias vs2010 Set-Vs2010
+New-Alias vs2013 Set-Vs2013
+
 rm alias:/curl
 rm alias:/wget
+rm alias:/r
 
 Pop-Location
-Clear-Host
+#Clear-Host
